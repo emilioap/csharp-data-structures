@@ -1,6 +1,6 @@
 ## Description
 
-Console application made with C# with 2 of the most common data structures:
+Console application made with C# with 2 of the most common data structures, using Strategy pattern:
 
 - Stack
 - Queue
