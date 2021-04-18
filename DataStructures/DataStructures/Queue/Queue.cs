@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructures
+namespace DataStructures.QueueStruct
 {
-    public class Stack : IStack
+    public class QueueStruct : IQueueStruct
     {
-        public Stack(int length, List<char> structure, int maxItems)
+        public QueueStruct(int length, int maxItems)
         {
             _length = length;
-            _structure = structure;
             _maxItems = maxItems;
+            _structure = new Queue<char>();
         }
 
         private int _length { get; set; }
-        
-        private List<char> _structure { get; set; }
+
+        private Queue<char> _structure { get; set;}
 
         private int _maxItems { get; set; }
 
-        public int Length {
-            get {return _length; }
+        public int Length
+        {
+            get { return _length; }
             set { _length = value; }
         }
 
-        public List<char> Structure {
+        public Queue<char> Structure
+        {
             get { return _structure; }
             set { _structure = value; }
         }
@@ -34,18 +36,18 @@ namespace DataStructures
             set { _maxItems = value; }
         }
 
-        public void push(char item)
+        public char dequeue()
         {
-            this._structure.Add(item);
-            _length++;
-        }
-
-        public char pop()
-        {
-            char item = _structure[_length];
-            _structure.RemoveAt(_length);
+            char item = _structure.Peek();
+            _structure.Dequeue();
             _length--;
             return item;
+        }
+
+        public void enqueue(char item)
+        {
+            _structure.Enqueue(item);
+            _length++;
         }
 
         public bool isEmpty()
@@ -64,14 +66,6 @@ namespace DataStructures
             foreach (var item in _structure)
                 word += " " + item;
             Console.WriteLine(word);
-        }
-
-        public bool isPalindrome(char ch, string word, int position)
-        {
-            if (ch != word.Substring(position, 1)[0])
-                return false;
-            else
-                return true;
         }
     }
 }

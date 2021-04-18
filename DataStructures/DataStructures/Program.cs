@@ -15,7 +15,8 @@ namespace DataStructures
             if (isValidOption)
             {
                 var exec = new StrategyRouter(result);
-                exec.ExecuteStructureType();
+                Console.WriteLine("Please, type a word:\n");
+                exec.ExecuteStructureType(Console.ReadLine());
             }
         }
     }

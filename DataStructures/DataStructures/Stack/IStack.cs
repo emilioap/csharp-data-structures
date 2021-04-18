@@ -7,10 +7,10 @@ namespace DataStructures
         int Length { get; set; }
         List<char> Structure { get; set; }
         int MaxItems { get; set; }
-        bool isEmpty();
-        bool isFull();
         void push(char item);
         char pop();
+        bool isEmpty();
+        bool isFull();
         void print();
         bool isPalindrome(char ch, string word, int position);
     }
